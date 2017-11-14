@@ -6,10 +6,19 @@ pipeline {
     
   }
   stages {
-    stage('Preparation') {
-      steps {
-        git(url: 'https://github.com/jglick/simple-maven-project-with-tests.git', branch: 'master')
-        sh 'echo "hello"'
+    stage('idk') {
+      parallel {
+        stage('Preparation') {
+          steps {
+            git(url: 'https://github.com/jglick/simple-maven-project-with-tests.git', branch: 'master')
+            sh 'echo "hello"'
+          }
+        }
+        stage('idk') {
+          steps {
+            sleep 10
+          }
+        }
       }
     }
     stage('Build') {
